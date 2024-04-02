@@ -1,0 +1,17 @@
+const { execSync } = require('child_process');
+
+const getLastUpdatedDate = (filePath) => {
+  // Replace `filePath` with the path to the file you want the last updated date for
+  const command = `git log -1 --format="%ad" -- ${filePath}`;
+  try {
+    const lastUpdated = execSync(command).toString().trim();
+    return lastUpdated;
+  } catch (error) {
+    console.error('Error getting last updated date:', error);
+    return '';
+  }
+};
+
+// Example usage
+const lastUpdatedDate = getLastUpdatedDate('pages/');
+console.log(lastUpdatedDate); // Outputs the last updated date of the file

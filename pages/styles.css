@@ -1,0 +1,16 @@
+/* Base state of the link */
+a {
+    color: #9945FF; /* Initial link color, you can set this to any color you prefer */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  /* Hover state of the link */
+  a:hover {
+    color: #14F195; /* Changes the link color to purple on hover */
+  }
+  
+  /* Active state of the link (on click) */
+  a:active {
+    color: #14F195; /* Changes the link color to green when clicked */
+  }
+  

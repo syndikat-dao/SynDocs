@@ -2,7 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <img src="/logo.png" alt="Logo" width="50" height="25" />,
   project: {
     link: 'https://github.com/shuding/nextra-docs-template',
   },
@@ -11,8 +11,22 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
-    text: 'Nextra Docs Template',
+    text: <span>
+      MIT {new Date().getFullYear()} ©{' '}
+      <a href="https://opensource.org/license/mit" target="_blank">
+        SyndikatDAO
+      </a>
+      
+    </span>
   },
+  banner: {
+    key: '2.0-release',
+      text: (
+        <a href="https://nextra.site" target="_blank">
+          Go Silly, or feel Silly! IDO is live now.
+        </a>
+      ),
+  },  
 }
 
 export default config

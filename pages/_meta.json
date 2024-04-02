@@ -1,13 +1,29 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
+  "ecosystem": "Ecosystem",
+  "Silly": "Silly (MILLY) Token",
+  "SynCity": "SynCity - Our Inner Circle",
+  "Optik": "Optik - Shoot Own Shine",
+  "SynSea": "SynSea - Wild Wet Waves",
+  "MillyNair": "Millynair - Silly Bets Win",
+  "Sputnik": "SputnikGPT",  "about": {
     "title": "About",
     "type": "page"
   },
+  "apply": {
+    "title": "Apply",
+    "type": "page",
+    "href": "https://example.com/contact",
+    "newWindow": true
+  },
+  "mint": {
+    "title": "Mint",
+    "type": "page",
+    "href": "https://example.com/contact",
+    "newWindow": true
+  },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Partner ↗",
     "type": "page",
     "href": "https://twitter.com/shuding_",
     "newWindow": true
