@@ -1,16 +1,16 @@
-/* Base state of the link */
-a {
-    color: #9945FF; /* Initial link color, you can set this to any color you prefer */
-    transition: color 0.3s ease; /* Smooth transition for color change */
+/* custom-styles.css */
+
+/* Target the banner element */
+.banner {
+    background-color: purple; /* Replace 'purple' with your desired shade of purple, or use a hex code like #800080 */
   }
   
-  /* Hover state of the link */
-  a:hover {
-    color: #14F195; /* Changes the link color to purple on hover */
+  /* Target the footer element */
+  .footer {
+    background-color: purple; /* Similarly, replace 'purple' with your desired shade or hex code */
+  }
+  body {
+    background-color: #1C1C1E; /* Adjust the color to match The Graph's style */
   }
   
-  /* Active state of the link (on click) */
-  a:active {
-    color: #14F195; /* Changes the link color to green when clicked */
-  }
   
