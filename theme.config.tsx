@@ -41,7 +41,7 @@ const config: DocsThemeConfig = {
   banner: {
     key: '2.0-release',
     text: (
-      <a href="https://nextra.site" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#14F195', color: '#000000' }}>
+      <a href="https://nextra.site" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#800080', color: '#ffffff' }}>
         Go Silly, or feel Silly! IDO is live now.
       </a>
     ),

@@ -1,34 +1,55 @@
 {
   "index": "Introduction",
   "ecosystem": "Ecosystem",
-   
+  "Silly": "Silly (Milly) Token",
+  "SynCity": "SynCity DAO",
+  "Optik": "Optik DAO",
+  "SynSea": "SynSea DAO",
+  "MillyNair": "MillyNair DAO",
+  "SputnikGPT": "SputnikGPT",
+
   "apply": {
-    "title": "Apply",
+    "title": "Get Your Passport",
     "type": "page",
-    "href": "https://example.com/contact",
+    "href": "/terms",
     "newWindow": true
-  
+
   },
   "terms": {
     "title": "Terms",
-    "type": "page",
-    "newWindow": true
-  
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": true,
+      "pagination": false
+    }
   },
-  "Jobs": {
-    "title": "Jobs",
-    "type": "page",
-    "newWindow": true
-  
-  },
-  "Privacy": {
+  "privacy": {
     "title": "Privacy",
-    "type": "page",
-    "newWindow": true
-  
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": true,
+      "pagination": false
+    }
+  },
+  "jobs": {
+    "title": "Jobs",
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": true,
+      "pagination": false
+    }
   },
   "mint": {
-    "title": "Mint",
+    "title": "Mint Your Visa",
     "type": "page",
     "href": "https://example.com/contact",
     "newWindow": true
