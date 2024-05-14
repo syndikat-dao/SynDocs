@@ -1,14 +1,14 @@
-/* custom-styles.css */
+/* pages/styles.css */
 
-/* Target the banner element */
-.banner {
-    background-color: purple; /* Replace 'purple' with your desired shade of purple, or use a hex code like #800080 */
-  }
-  
-  /* Target the footer element */
-  .footer {
-    background-color: purple; /* Similarly, replace 'purple' with your desired shade or hex code */
-  }
- 
-  
-  
+.announcement-bar {
+  background-color: #9945FF;
+  color: white;
+  padding: 2px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.announcement-bar a {
+  color: white;
+  text-decoration: none;
+}

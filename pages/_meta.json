@@ -1,5 +1,5 @@
 {
-  "index": "Introduction",
+  "index": "Hello World",
   "ecosystem": "Ecosystem",
   "Silly": "Silly (Milly) Token",
   "SynCity": "SynCity DAO",
@@ -37,8 +37,8 @@
       "pagination": false
     }
   },
-  "jobs": {
-    "title": "Jobs",
+  "airdrop": {
+    "title": "Airdrop",
     "display": "hidden",
     "theme": {
       "breadcrumb": false,
