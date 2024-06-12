@@ -1,17 +1,26 @@
 {
   "index": "Hello World",
-  "ecosystem": "Ecosystem",
+  "ecosystem": {
+    "title": "Ecosystem",
+    "display": "hidden"
+  },
   "Silly": "Silly (Milly) Token",
   "SynCity": "SynCity DAO",
-  "Optik": "Optik DAO",
+  "Optik": {
+    "title": "Optik DAO",
+    "display": "hidden"
+  },
   "SynSea": "SynSea DAO",
-  "MillyNair": "MillyNair DAO",
+  "MillyNair": {
+    "title": "MillyNair DAO",
+    "display": "hidden"
+  },
   "SputnikGPT": "SputnikGPT",
 
   "apply": {
     "title": "Get Your Passport",
     "type": "page",
-    "href": "/terms",
+    "href": "https://eu.jotform.com/build/232253084368053#preview",
     "newWindow": true
 
   },
@@ -51,13 +60,13 @@
   "mint": {
     "title": "Mint Your Visa",
     "type": "page",
-    "href": "https://example.com/contact",
+    "href": "https://nb-cmv3-devnet.vercel.app/",
     "newWindow": true
   },
   "contact": {
     "title": "Partner ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "mailto:partner@syndikat.wtf",
     "newWindow": true
   }
 }

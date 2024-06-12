@@ -1,12 +1,33 @@
+import styles from './VideoSection.module.css';
+import { useState, useEffect } from 'react';
+
 # SynCity - Our Inner Circle!
 
 ### **Chapter 3: The Enchanted Nexus**
 
-!https://cdn.shopify.com/s/files/1/0770/7964/2458/files/yaqwer._Syndikat_DAO_SynCitys_Secret_Garden_Web3_enthusiasts_ar_e1d0506c-0170-49df-be2c-f14845edc3d4_2048x2048.png?v=1707073757
-
+<div className={styles.videoSection}>
+  <div className={styles.videoWrapper}>
+    <video src="/yaqwer.mp4" autoPlay muted loop width="100%" height="auto" />
+    <div className={styles.videoCredits}>
+    [©](https://www.thevisualdome.com/)
+    </div>
+  </div>
+  <div className={styles.textWrapper}>
+    {typeof window !== 'undefined' ? (
+      <p>
 Upon entering SynCity, Silly found herself enveloped in a realm where creativity and harmony flourish. The Whispering Web3 Woods spoke softly of solidarity, their digital tendrils entwining in a symphony of cooperation. In this kaleidoscope of life, the Soulful Sanctuary Space offered a haven for reflection, its melodies crafted by the deft touch of AI, guiding souls on their journey of growth.
 
 At the core of SynCity, the fusion of Permaculture & Hydroponic Heartland epitomized the blend of age-old wisdom with cutting-edge innovation. The Digital Oasis of Dreams dissolved the boundaries between reality and fantasy, crafting realms unbound by the physical world through augmented and virtual vistas.
+      </p>
+    ) : (
+      <p suppressHydrationWarning={true}>
+Upon entering SynCity, Silly found herself enveloped in a realm where creativity and harmony flourish. The Whispering Web3 Woods spoke softly of solidarity, their digital tendrils entwining in a symphony of cooperation. In this kaleidoscope of life, the Soulful Sanctuary Space offered a haven for reflection, its melodies crafted by the deft touch of AI, guiding souls on their journey of growth.
+
+At the core of SynCity, the fusion of Permaculture & Hydroponic Heartland epitomized the blend of age-old wisdom with cutting-edge innovation. The Digital Oasis of Dreams dissolved the boundaries between reality and fantasy, crafting realms unbound by the physical world through augmented and virtual vistas.
+      </p>
+    )}
+  </div>
+</div>
 
 ### Welcome to SynCity!
 

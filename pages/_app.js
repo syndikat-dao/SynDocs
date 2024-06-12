@@ -1,12 +1,12 @@
-import 'pages/styles.css'; // Adjust the path according to your file structure
+import '/Users/maki/SynDocs/pages/styles.css'; // Adjust the path according to your file structure
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Script from 'next/script'; // Import next/script
 
 const announcements = [
-  { text: 'Go Silly, or feel Silly? IDO is live!', link: 'https://www.dexlab.space/mintinglab/spl-token/B2Qfkrw8SNr7dBaxBr62zTQmF74f6aUFw8cdibvB3L5k1' },
-  { text: 'Syndikat Citizenship? Apply Now!', link: 'https://eu.jotform.com/build/232253084368053' },
-  { text: 'Free Content-Creators, Support Optik!', link: '/Optik' },
+  { text: 'Go Silly, or Feel Silly! IDO Now Live on Raydium', link: 'https://www.dexlab.space/mintinglab/spl-token/B2Qfkrw8SNr7dBaxBr62zTQmF74f6aUFw8cdibvB3L5k1' },
+  { text: 'Become a Syndikat Citizen: Apply Today!', link: 'https://eu.jotform.com/build/232253084368053' },
+  { text: 'Empower Content Creators & Free Users! Support Optik.wtf', link: '/Optik' },
 ];
 
 function MyApp({ Component, pageProps }) {

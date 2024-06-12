@@ -1,56 +1,123 @@
 import Image from 'next/image'
+import styles from './VideoSection.module.css';
+import { useState, useEffect } from 'react';
+import { Steps } from 'nextra/components'
 
-## **Envisioning the Future with Syndikat DAO**
-<Image src="/eee1.png" alt="Hello" width={1000} height={500} />
 
-Syndikat DAO is on a mission to revolutionise the digital landscape, advocating for an ecosystem brimming with innovation, underpinned by the principles of blockchain. Our vision is a future rooted in decentralisation, where community collaboration and creative freedom are paramount.
+## **Syndikat DAO?**
 
-The Silly (Milly) Token stands at the core of our strategy, bridging our diverse initiatives and subDAOs, thereby amplifying the utility of both the token and the DAO's. Our mission is to forge alliances that echo our revolutionary spirit, thus expanding our influence and reaffirming our commitment to a decentralised future.
+<div className={styles.videoSection}>
+  <div className={styles.videoWrapper}>
+    <video src="/yaqwer.mp4" autoPlay muted loop width="100%" height="auto" />
+    <div className={styles.videoCredits}>
+    [©](https://www.thevisualdome.com/)
+    </div>
+  </div>
+  <div className={styles.textWrapper}>
+    {typeof window !== 'undefined' ? (
+      <p>
+        We're smashing the centralised world with blockchain. Decentralised power, pure innovation!
+      </p>
+    ) : (
+      <p suppressHydrationWarning={true}>
+        We're smashing the centralised world with blockchain. Decentralised power, pure innovation!
+      </p>
+    )}
+  </div>
+</div>
 
-### **SubDAOs: The Foundations of Syndikat**
+{typeof window !== 'undefined' ? (
+  <p className={styles.fullWidthText}>
+    Our native Silly (Milly) utility Token fuels this revolution. Unite. Rebel. Create.
+  </p>
+) : (
+  <p className={styles.fullWidthText} suppressHydrationWarning={true}>
+    Our native Silly (Milly) utility Token fuels this revolution. Unite. Rebel. Create.
+  </p>
+)}
 
-- **SynCity**: The creative powerhouse of Syndikat, blending digital prowess with authentic human connections, nurturing projects where technology serves as a catalyst for artistic and social ventures.
-- **Optik**: A sanctuary for unrestricted expression in video sharing, challenging censorship, and championing the cause of free creativity and community-driven media on the lightning-fast, censorship-resilient, and environment-friendly Solana blockchain.
-- SynSea: A sailing yacht meant to connect all continents with the values of Syndikat. It’s the safe-haven for our media elite and prophets to spread a transparent system of love and equality.
-- MillyNair: Reconstructing industries and solving problems from the roots in an innovative and inspiring way, instead of sunning in the status quo until burned from cancel culture. Millynair is the first DAO-enabled Casino, to showcase how the individuum profits from decentralisation and transparency.
-- SputnikGPT: As we love efficiency and innovation, last but not least our GPT assistant, helps the Syndikat community to life resources efficiently and focus on things that matter, instead of wasting time on repetitive work. With a curated list of assistants, we aim to improve the navigation through Syndikat with SillyGPT, level up the quality of legal and accounting with LibertyGPT, and Provide always the best deal or product with DealGPT, mental health is crucial for a strong community, for psychological consultation FreudGPT will be day and night on your side. and the cherry on top is a CloneGPT, feeling lonely or missing a lost one, ignite your memorise by cloning the visual appearance, voice, and knowledge of a person that will never leave you and communicates as an HD live avatar whenever you want!
+## SubDAOs The Pillars of Syndikat
+
+**[SynCity DAO:](https://syndikat.wtf/syncity)**: The creative powerhouse of Syndikat, fusing digital prowess with genuine human connections, nurturing projects where technology serves as a catalyst for artistic and social ventures.
+
+**[SynSea DAO:](https://syndikat.wtf/synsea)** A sailing yacht designed to connect all continents with the values of Syndikat. It's the safe haven for our media elite and prophets to spread a transparent system of love and equality.
+
+**[SputnikLLM](https://gpt.syndikat.wtf)** As we cherish efficiency and innovation, last but not least, our GPT assistant helps the Syndikat community to utilise resources efficiently and focus on what truly matters, instead of squandering time on repetitive tasks. With a curated list of assistants, we aim to enhance navigation through Syndikat with:
+    
+   - **SillyGPT**, elevate the quality of legal and accounting with - **LibertyGPT**, and always provide the best deal or product with 
+   - **DealGPT**.
+    Mental health is crucial for a strong community, and for psychological consultation, 
+    - **MindGPT** will be by your side day and night. The cherry on top is 
+    - **CloneGPT**; feeling lonely or missing a loved one? Ignite your memories by cloning the visual appearance, voice, and knowledge of a person who will never leave you and communicates as an HD live avatar whenever you desire!
+    
+```mermaid
+graph TD;
+    A[Syndikat DAO] --> B[Silly Token]
+    A --> C[SynCity subDAO]
+    A --> D[SynSea subDAO]
+    B --> C
+    B --> D
+    C --> E[Governance]
+    C --> F[Events]
+    C --> G[New subDAOs]
+    D --> H[Spreading Values]
+    D --> I[Core Team Events]
+    E --> J[Proposal Voting]
+    F --> J
+    G --> J
+    H --> K[Connecting with Like-minded Individuals]
+    I --> K
+    J --> L[Shaping the Future of Syndikat]
+    K --> L
+```
+
+## Silly: The Embodiment of Our Ethos
+
+ At the core of Syndikat lies Silly, a manifestation of our unwavering commitment to creativity, innovation, and the pursuit of the extraordinary. Silly represents the spirit of our community, guiding us through the uncharted territories of the digital realm. The following chapters unfold the captivating tale of Silly's journey, as seen through her eyes, offering a glimpse into the heart and soul of Syndikat DAO.
 
 ### I. Silly's Odyssey to Syndikat DAO
 
 <Image src="/mono.png" alt="Hello" width={1000} height={500} />
 
-In a world draped in monochrome, where the ordinary casts long shadows, there emerges Syndikat DAO—a luminous fount of rebellion tucked away in the unseen. It stands not merely as a gathering but as a symphony of change, a covert oasis where bravery and ingenuity intertwine, charting paths into the uncharted.
+In a world cloaked in monochrome, where the ordinary casts long shadows, there emerges Syndikat DAO—a luminous fount of rebellion nestled away in the unseen. It stands not merely as a gathering but as a symphony of change, a covert oasis where bravery and ingenuity intertwine, charting paths into the uncharted.
 
-### **II. Awakening in the Hues of Grey**
+### II. Awakening in the Hues of Grey
 
 <Image src="/shroom1.png" alt="Hello" width={1000} height={500} />
 
 Trapped beneath a canopy of sameness, Silly's essence simmered with a thirst for escape. Bound by the chains of conformity, her soul was a tempest of longing. In her deepest trough of despair, a light from Syndikat DAO cut through the murk, a beacon steering her to a destiny of her own weaving. It was a fortuitous brush with an arcane mushroom that flung open the gates to this secluded haven, melting away the fetters of delusion, summoning her to step forth.
 
-### **III. The Enigmatic Summoning**
+**III. The Enigmatic Summoning** 
 
 <Image src="/eee.png" alt="Hello" width={1000} height={500} />
 
 As Silly's transformation unfurled, the soft rapping of a 'knock, knock' resonated within, stirring the depths of her being. "Who's there?" she mused. "Destiny," the cosmos murmured back, entrusting her with the Knock-Knock Passport. This insignia, a symbol of her rebirth, spread a vista of boundless creativity and liberty before her, inviting her to traverse its expanse.
 
-**The Governance Ethos of Syndikat**
+## The Governance Ethos of Syndikat
 
 champions governance that is transparent, inclusive, and participatory, powered by the Silly (Milly) Token. This framework ensures every member's voice is heard, shaping the trajectory of the DAO and its initiatives.
 
-We're not merely crafting a platform; it is igniting a revolution in every aspect of digital and societal evolution. This call is for the dauntless, those in harmony with the cadence of defiance. In Syndikat, we don't just gather forces; we unite disruptors and visionaries ready to embark on this epoch-making journey.
-
-**Roadmap to Revolution**
+## **Roadmap to Revolution**
 
 | Quarter | Milestones |
 | --- | --- |
-| 2024 Q1 | Establishing the Syndikat DAO and setting up governance structures. |
-| 2024 Q2 | Initiating the development of SynCity, aiming to create a hub for collaboration across all aspects of modern life. |
-| 2024 Q3 | Implementing DAO features and rigorously reviewing SynCity's development to ensure it aligns with Syndikat's holistic vision. |
-| 2024 Q4 | Launching operations and officially opening SynCity to members, inviting them to explore and contribute to this new ecosystem. |
+| 2024 Q2 | Establishing the Syndikat DAO and setting up governance structures. |
+| 2024 Q3 | Initiating the development of SynCity, aiming to create a hub for collaboration across all aspects of modern life. |
+| 2024 Q4 | Implementing DAO features and rigorously reviewing SynCity's development to ensure it aligns with Syndikat's holistic vision. |
+| 2025 Q1 | Launching operations and officially opening SynCity to members, inviting them to explore and contribute to this new ecosystem. |
 
+We're not merely crafting a platform; we are igniting a movement in every aspect of digital and societal evolution. This call is for the dauntless, those in harmony with the cadence of defiance. In Syndikat, we don't just gather forces; we unite disruptors and visionaries ready to embark on this epoch-making journey.
 
-Joining Syndikat isn't just about becoming part of a community; it's about being woven into the fabric of a narrative that challenges the very essence of existence. Welcome to the forefront of change. Welcome to Syndikat.
+<Steps>
+### Step 1
+ 
+Contents for step 1.
+ 
+### Step 2
+ 
+Contents for step 2.
+</Steps>
 
-**APPLY NOW!**
+Get Your Passport [Apply Now!](https://eu.jotform.com/build/232253084368053)
 
-[Learn more about OPTIK "Shoot Own Shine"](https://eu.jotform.com/build/232253084368053)
+[Discover the secrets of Silly "Brave Buck Boogie!"](http://localhost:3000/Silly)

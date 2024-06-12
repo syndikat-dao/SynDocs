@@ -1,0 +1,23 @@
+.videoSection {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.videoWrapper {
+  flex: 0 0 40%;
+  margin-right: 2rem;
+}
+
+.textWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.textWrapper p {
+  margin: 0;
+}
+
+.fullWidthText {
+  margin-bottom: 2rem;
+}

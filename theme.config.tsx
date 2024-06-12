@@ -4,7 +4,7 @@ import { DocsThemeConfig } from 'nextra-theme-docs';
 const config: DocsThemeConfig = {
   logo: <img src="/logo.png" alt="Logo" width="50" height="25" />,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-templatex',
+    link: 'https://github.com/syndikat-dao/SynDocs',
   },
   chat: {
     link: 'https://discord.com',
@@ -13,7 +13,7 @@ const config: DocsThemeConfig = {
     light: 162,
     dark: 162,
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://github.com/syndikat-dao/SynDocs',
   footer: {
     component: ({ menu }) => (
       <footer style={{ 
@@ -26,7 +26,7 @@ const config: DocsThemeConfig = {
       }}>
         <span>
            {new Date().getFullYear()} ©{' '}
-          <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">
+          <a href="https://syndikat.wtf" target="_blank" rel="noopener noreferrer">
             SyndikatDAO
           </a>
           {' | '}
