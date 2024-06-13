@@ -1,15 +1,14 @@
 .videoSection {
   display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
 }
 
 .videoWrapper {
-  flex: 0 0 40%;
-  margin-right: 2rem;
+  margin-bottom: 1rem;
 }
 
 .textWrapper {
-  flex: 1;
   display: flex;
   align-items: center;
 }
@@ -20,4 +19,20 @@
 
 .fullWidthText {
   margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .videoSection {
+    flex-direction: row;
+  }
+
+  .videoWrapper {
+    flex: 0 0 40%;
+    margin-right: 2rem;
+    margin-bottom: 0;
+  }
+
+  .textWrapper {
+    flex: 1;
+  }
 }

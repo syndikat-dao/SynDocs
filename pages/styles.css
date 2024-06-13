@@ -1,5 +1,3 @@
-/* pages/styles.css */
-
 .announcement-bar {
   background-color: #9945FF;
   color: white;
@@ -11,4 +9,11 @@
 .announcement-bar a {
   color: white;
   text-decoration: none;
+}
+:root {
+  --icon-color: #000; /* Default color for light theme */
+}
+
+.dark {
+  --icon-color: #fff; /* Color for dark theme */
 }

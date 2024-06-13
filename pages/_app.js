@@ -1,4 +1,4 @@
-import '/Users/maki/SynDocs/pages/styles.css'; // Adjust the path according to your file structure
+import './styles.css'; // Adjust the path according to your file structure
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Script from 'next/script'; // Import next/script
