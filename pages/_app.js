@@ -26,11 +26,12 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         {/* Remove the <script> tag and use next/script instead */}
-        <Script
-          data-embed-id="47342c49-c1e4-4cba-8394-ceed2f599550"
-          data-base-api-url="http://63.32.53.189:3001/api/embed"
-          src="http://63.32.53.189:3001/embed/anythingllm-chat-widget.min.js"
-        ></Script>
+        {/* <script src="https://cdn.syndikat.wtf/embed/anythingllm-chat-widget.min.js"></script> */}
+<script
+  data-embed-id="5bcca449-acc6-437c-8d33-a0657b8900bb"
+  data-base-api-url="https://gpt.syndikat.wtf/api/embed"
+  src="https://gpt.syndikat.wtf/embed/anythingllm-chat-widget.min.js">
+</script>
       </Head>
       <div className="announcement-bar">
         <a href={announcements[currentAnnouncement].link}>{announcements[currentAnnouncement].text}</a>
