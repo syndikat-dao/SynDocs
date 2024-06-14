@@ -24,15 +24,18 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Head>
-        {/* Remove the <script> tag and use next/script instead */}
-        {/* <script src="https://cdn.syndikat.wtf/embed/anythingllm-chat-widget.min.js"></script> */}
-<script
-  data-embed-id="5bcca449-acc6-437c-8d33-a0657b8900bb"
-  data-base-api-url="https://gpt.syndikat.wtf/api/embed"
-  src="https://gpt.syndikat.wtf/embed/anythingllm-chat-widget.min.js">
-</script>
-      </Head>
+      {useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://gpt.syndikat.wtf/embed/anythingllm-chat-widget.min.js';
+        script.setAttribute('data-embed-id', '5bcca449-acc6-437c-8d33-a0657b8900bb');
+        script.setAttribute('data-base-api-url', 'https://gpt.syndikat.wtf/api/embed');
+        document.head.appendChild(script);
+
+        return () => {
+          document.head.removeChild(script);
+        };
+      }, [])}
+
       <div className="announcement-bar">
         <a href={announcements[currentAnnouncement].link}>{announcements[currentAnnouncement].text}</a>
       </div>

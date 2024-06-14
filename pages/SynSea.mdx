@@ -1,5 +1,26 @@
+import styles from './VideoSection.module.css';
+import { Steps } from 'nextra/components'
+
 # SynSea - Wind Wild Waves
 
 **Chapter 6: The Mycelial Voyage**
 
+<div className={styles.videoSection}>
+  <div className={styles.videoWrapper}>
+    <video src="/sea.mp4" autoPlay muted loop width="100%" height="auto" />
+    <div className={styles.videoCredits}>
+    [©](https://www.thevisualdome.com/)
+    </div>
+  </div>
+  <div className={styles.textWrapper}>
+    {typeof window !== 'undefined' ? (
+      <p>
 As the embers of celebration dimmed, Silly's heart, ignited with newfound resolve, soared towards the beckoning azure. Amidst the confluence of sea and sky, she embarked upon SynSea, a sanctuary yacht cradling the dreams of seers and scribes. Propelled by the whispers of the wind and the caress of the waves, this voyage became a tapestry woven with the essence of exploration and connection. Like mycelium stretching beneath the ocean's embrace, Silly's journey on the SynSea symbolised the Syndikat's ethos weaving through the world's fabric, uniting distant lands with tendrils of love and revolutionary thought.
+     </p>
+    ) : (
+      <p suppressHydrationWarning={true}>
+As the embers of celebration dimmed, Silly's heart, ignited with newfound resolve, soared towards the beckoning azure. Amidst the confluence of sea and sky, she embarked upon SynSea, a sanctuary yacht cradling the dreams of seers and scribes. Propelled by the whispers of the wind and the caress of the waves, this voyage became a tapestry woven with the essence of exploration and connection. Like mycelium stretching beneath the ocean's embrace, Silly's journey on the SynSea symbolised the Syndikat's ethos weaving through the world's fabric, uniting distant lands with tendrils of love and revolutionary thought.
+     </p>
+    )}
+  </div>
+</div>

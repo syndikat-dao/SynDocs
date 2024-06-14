@@ -64,9 +64,20 @@
     "newWindow": true
   },
   "contact": {
-    "title": "Partner ↗",
-    "type": "page",
-    "href": "mailto:partner@syndikat.wtf",
-    "newWindow": true
-  }
+  "title": "Partner",
+  "type": "menu",
+  "items": [
+    {
+      "title": "Partner",
+      "href": "mailto:partner@syndikat.wtf",
+      "newWindow": true
+    },
+    {
+      "title": "Affiliate",
+      "href": "mailto:affiliate@syndikat.wtf",
+      "newWindow": true
+    }
+  ]
+}
+
 }
