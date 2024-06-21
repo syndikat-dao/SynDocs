@@ -63,21 +63,20 @@
     "href": "https://nb-cmv3-devnet.vercel.app/",
     "newWindow": true
   },
-  "contact": {
-  "title": "Partner",
+  "Colab": {
+  "title": "Colab",
   "type": "menu",
-  "items": [
-    {
-      "title": "Partner",
-      "href": "mailto:partner@syndikat.wtf",
+  "items": {
+  "Partnership": {
+   "title": "Partner",
+     "href": "mailto:partner@syndikat.wtf",
       "newWindow": true
     },
-    {
+      "Affiliates": {
       "title": "Affiliate",
       "href": "mailto:affiliate@syndikat.wtf",
       "newWindow": true
     }
-  ]
-}
-
+  }
+ }
 }
