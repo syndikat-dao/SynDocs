@@ -1,66 +1,59 @@
-import React, { useEffect, useState } from 'react';
-import { useWallet } from '@solana/wallet-adapter-react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { verifyOwnership } from '../utils/solana';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import styles from './styles/Auth.module.css';
 
-const AuthPage: React.FC = () => {
-  const { connected, publicKey, signMessage } = useWallet();
+const AuthPage: React.FC<{ 
+  authState: string; 
+  handleSignMessage: () => Promise<void>;
+  isAuthorized: boolean;
+}> = ({ authState, handleSignMessage, isAuthorized }) => {
   const router = useRouter();
-  const [status, setStatus] = useState('Please connect your wallet');
-  const [debugInfo, setDebugInfo] = useState('');
-  const [error, setError] = useState('');
 
   useEffect(() => {
-    if (connected && publicKey) {
-      handleAuthentication();
+    if (isAuthorized) {
+      router.push('/');
     }
-  }, [connected, publicKey]);
-
-  const handleAuthentication = async () => {
-    try {
-      setStatus('Signing message to prove ownership...');
-      const message = new TextEncoder().encode(`Prove ownership for Syndikat DAO: ${Date.now()}`);
-      await signMessage(message);
-      
-      setStatus('Verifying ownership...');
-      const { isOwner, debugInfo } = await verifyOwnership(publicKey.toString());
-      setDebugInfo(debugInfo);
-
-      if (isOwner) {
-        setStatus('Ownership verified. Redirecting...');
-        router.push('/');
-      } else {
-        setStatus('Required tokens not found in wallet.');
-      }
-    } catch (error) {
-      console.error('Authentication error:', error);
-      setStatus('An error occurred during authentication.');
-      setError(error.message);
-    }
-  };
+  }, [isAuthorized, router]);
 
   return (
     <div className={styles.authContainer}>
-      <h1>Our Inner Circle! Connect your wallet to prove ownership</h1>
-      <WalletMultiButton />
-      <p>{status}</p>
-      {error && <p className={styles.error}>Error: {error}</p>}
-      {status === 'Required tokens not found in wallet.' && (
-        <div>
-          <a href={`https://raydium.io/swap/?inputCurrency=sol&outputCurrency=${process.env.NEXT_PUBLIC_REQUIRED_SPL_TOKEN_ADDRESS}`} target="_blank" rel="noopener noreferrer">
-            Get Required SPL Token
-          </a>
-          <br />
-          <a href={`https://magiceden.io/marketplace/${process.env.NEXT_PUBLIC_REQUIRED_NFT_ADDRESS}`} target="_blank" rel="noopener noreferrer">
-            Get Required NFT
-          </a>
-        </div>
+      <h1>Our Inner Circle</h1>
+      <p className={styles.authStatus}>{getStatusMessage(authState)}</p>
+      {authState === 'disconnected' && <WalletMultiButton />}
+      {authState === 'connected' && (
+        <button onClick={handleSignMessage}>Sign Message to Verify Ownership</button>
       )}
-      <pre>{debugInfo}</pre>
+      {authState === 'unauthorized' && (
+        <>
+          <div className={styles.tokenLinks}>
+            <a href={`https://raydium.io/swap/?inputCurrency=sol&outputCurrency=${process.env.NEXT_PUBLIC_REQUIRED_SPL_TOKEN_ADDRESS}`} target="_blank" rel="noopener noreferrer">
+              Get Required SPL Token
+            </a>
+            <a href={`https://magiceden.io/marketplace/${process.env.NEXT_PUBLIC_REQUIRED_NFT_ADDRESS}`} target="_blank" rel="noopener noreferrer">
+              Get Required NFT
+            </a>
+          </div>
+          <div className={styles.logoContainer}>
+            <img src="/logo403.png" alt="Access Denied" width={100} height={100} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
+
+function getStatusMessage(authState: string): string {
+  switch (authState) {
+    case 'disconnected': return 'Please connect your wallet';
+    case 'connected': return 'Wallet connected. Please sign the message to verify ownership.';
+    case 'signing': return 'Please sign the message in your wallet';
+    case 'verifying': return 'Verifying token ownership...';
+    case 'authorized': return 'Access granted. Redirecting...';
+    case 'unauthorized': return 'Required tokens not found in wallet.';
+    case 'error': return 'An error occurred. Please try again.';
+    default: return 'Initializing...';
+  }
+}
 
 export default AuthPage;

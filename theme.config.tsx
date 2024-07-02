@@ -2,6 +2,7 @@ import React from 'react';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 import { useRouter } from 'next/router'
 import { useWallet } from '@solana/wallet-adapter-react'
+import { DisconnectButton } from './components/DisconnectButton';
 
 const config: DocsThemeConfig = {
   logo: <img src="/logo.png" alt="Logo" width="50" height="25" />,
@@ -21,17 +22,7 @@ const config: DocsThemeConfig = {
     dark: 162,
   },
   navbar: {
-    extraContent: () => {
-      const { disconnect } = useWallet()
-      const router = useRouter()
-
-      const handleDisconnect = async () => {
-        await disconnect()
-        router.push('/auth')
-      }
-
-      return <button onClick={handleDisconnect}>Disconnect</button>
-    }
+    extraContent: DisconnectButton
   },
   docsRepositoryBase: 'https://github.com/syndikat-dao/SynDocs',
   footer: {

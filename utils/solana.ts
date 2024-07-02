@@ -65,7 +65,7 @@ export const verifyOwnership = async (publicKey: string): Promise<{ isOwner: boo
       debugInfo += `Checking for SPL token: ${process.env.NEXT_PUBLIC_REQUIRED_SPL_TOKEN_ADDRESS}\n`;
       const tokenAddress = new PublicKey(process.env.NEXT_PUBLIC_REQUIRED_SPL_TOKEN_ADDRESS);
       const requiredAmount = parseInt(process.env.NEXT_PUBLIC_REQUIRED_SPL_TOKEN_AMOUNT || '0');
-      
+
       const tokenAccount = tokenAccounts.value.find(
         account => account.account.data.parsed.info.mint === tokenAddress.toString()
       );

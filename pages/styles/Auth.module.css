@@ -1,28 +1,35 @@
 .authContainer {
-    background-color: black;
-    color: white;
-    font-family: Helvetica, Arial, sans-serif;
-    padding: 20px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .authContainer h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .authContainer p {
-    margin: 10px 0;
-  }
-  
-  .authContainer a {
-    color: white;
-    text-decoration: underline;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.authStatus {
+  margin-bottom: 20px;
+}
+
+.tokenLinks {
+  margin-top: 20px;
+}
+
+.tokenLinks a {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #1b191c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.logoContainer {
+  margin-top: 40px;
+}
+
   .error {
     color: red;
     font-weight: bold;
