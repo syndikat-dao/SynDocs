@@ -13,7 +13,7 @@ interface AuthWrapperProps {
   }) => ReactNode;
 }
 
-export const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
+export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
   const { connected, publicKey, signMessage, disconnect } = useWallet();
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -35,15 +35,20 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
       setIsLoading(true);
       setAuthState('verifying');
       try {
-        const { isOwner, debugInfo } = await verifyOwnership(publicKey.toString());
-        console.log('Debug Info:', debugInfo);
-        setIsAuthorized(isOwner);
-        setAuthState(isOwner ? 'authorized' : 'unauthorized');
-        
-        if (isOwner && router.pathname === '/auth') {
-          router.push('/');
-        } else if (!isOwner && router.pathname !== '/auth') {
-          router.push('/auth');
+        const ownershipResult = await verifyOwnership(publicKey.toString());
+        if (ownershipResult) {
+          const { isOwner, debugInfo } = ownershipResult;
+          console.log('Debug Info:', debugInfo);
+          setIsAuthorized(isOwner);
+          setAuthState(isOwner ? 'authorized' : 'unauthorized');
+
+          if (isOwner && router.pathname === '/auth') {
+            router.push('/');
+          } else if (!isOwner && router.pathname !== '/auth') {
+            router.push('/auth');
+          }
+        } else {
+          setAuthState('error');
         }
       } catch (error) {
         console.error('Error checking authorization:', error);
@@ -66,14 +71,19 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
         'This will check for required tokens and balances in your wallet.\n' +
         'No fees will be applied.'
       );
-      await signMessage(message);
+      await signMessage?.(message);
       // After signing, we'll re-check authorization
       setAuthState('verifying');
-      const { isOwner } = await verifyOwnership(publicKey.toString());
-      setIsAuthorized(isOwner);
-      setAuthState(isOwner ? 'authorized' : 'unauthorized');
-      if (isOwner) {
-        router.push('/');
+      const ownershipResult = await verifyOwnership(publicKey.toString());
+      if (ownershipResult) {
+        const { isOwner } = ownershipResult;
+        setIsAuthorized(isOwner);
+        setAuthState(isOwner ? 'authorized' : 'unauthorized');
+        if (isOwner) {
+          router.push('/');
+        }
+      } else {
+        setAuthState('error');
       }
     } catch (error) {
       console.error('Error signing message:', error);
@@ -88,5 +98,15 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
     router.push('/auth');
   };
 
-  return children({ isAuthorized, isLoading, authState, handleSignMessage, handleDisconnect });
+  return (
+    <>
+      {children({ 
+        isAuthorized, 
+        isLoading, 
+        authState, 
+        handleSignMessage, 
+        handleDisconnect 
+      })}
+    </>
+  );
 };

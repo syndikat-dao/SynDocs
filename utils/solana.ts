@@ -8,7 +8,7 @@ const RPC_ENDPOINTS = [
   'https://rpc.ankr.com/solana_devnet',
 ];
 
-async function getConnection(): Promise<Connection> {
+async function getConnection(): Promise<any> {
   for (const endpoint of RPC_ENDPOINTS) {
     if (!endpoint) continue;
     const connection = new Connection(endpoint, 'confirmed');
@@ -89,9 +89,14 @@ export const verifyOwnership = async (publicKey: string): Promise<{ isOwner: boo
 
     console.log(debugInfo);
     return { isOwner, debugInfo };
-  } catch (error) {
-    console.error('Error verifying ownership:', error);
-    debugInfo += `Error: ${error.message}`;
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('Error verifying ownership:', error);
+      debugInfo += `Error: ${error.message}`;
+    } else {
+      console.error('Error verifying ownership:', error);
+      debugInfo += `Error: ${String(error)}`;
+    }
     return { isOwner: false, debugInfo };
   }
 };

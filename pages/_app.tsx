@@ -27,23 +27,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     return () => clearInterval(timer)
   }, [])
 
-
-  useEffect(() => {
-    // Render the DisconnectButton in the navbar
-    const container = document.getElementById('disconnect-button-container');
-    if (container && router.pathname !== '/auth') {
-      const root = ReactDOM.createRoot(container);
-      root.render(<DisconnectButton />);
-    }
-  }, [router.pathname]);
-
   return (
     <WalletConnectionProvider>
       <AuthWrapper>
         {({ isAuthorized, isLoading, authState, handleSignMessage }) => (
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <>
-              {isAuthorized && router.pathname !== '/auth' && (
+              {isAuthorized && router.pathname === '/' && (
                 <div className="announcement-bar">
                   <a href={announcements[currentAnnouncement].link}>{announcements[currentAnnouncement].text}</a>
                 </div>
@@ -57,12 +47,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                     authState={authState} 
                     handleSignMessage={handleSignMessage}
                   />
-                  {isAuthorized && router.pathname !== '/auth' && (
-                    <script 
-                      src="https://gpt.syndikat.wtf/embed/anythingllm-chat-widget.min.js" 
-                      data-embed-id="5bcca449-acc6-437c-8d33-a0657b8900bb" 
-                      data-base-api-url="https://gpt.syndikat.wtf/api/embed"
-                    />
+                  {isAuthorized && router.pathname === '/' && (
+                    <GPTWidget />
                   )}
                 </>
               )}
@@ -73,5 +59,23 @@ function MyApp({ Component, pageProps }: AppProps) {
     </WalletConnectionProvider>
   )
 }
+
+const GPTWidget = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://gpt.syndikat.wtf/embed/anythingllm-chat-widget.min.js';
+    script.setAttribute('data-embed-id', '5bcca449-acc6-437c-8d33-a0657b8900bb');
+    script.setAttribute('data-base-api-url', 'https://gpt.syndikat.wtf/api/embed');
+    document.head.appendChild(script);
+
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
+  return null;
+};
 
 export default MyApp
