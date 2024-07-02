@@ -37,5 +37,8 @@
   "devDependencies": {
     "@types/node": "18.11.10",
     "typescript": "^4.9.3"
-  }
+  },
+  "resolutions": {
+  "@solana/codecs-data-structures": "1.0.0"
+}
 }
