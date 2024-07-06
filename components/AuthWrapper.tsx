@@ -2,6 +2,7 @@ import React, { useEffect, useState, ReactNode } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { useRouter } from 'next/router';
 import { verifyOwnership } from '../utils/solana';
+import { useSession } from "next-auth/react"
 
 interface AuthWrapperProps {
   children: (props: {
@@ -14,6 +15,7 @@ interface AuthWrapperProps {
 }
 
 export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
+  const { data: session, status } = useSession()
   const { connected, publicKey, signMessage, disconnect } = useWallet();
   const router = useRouter();
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -26,8 +28,8 @@ export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
         setIsAuthorized(false);
         setAuthState('disconnected');
         setIsLoading(false);
-        if (router.pathname !== '/auth') {
-          router.push('/auth');
+        if (router.pathname !== '/who?') {
+          router.push('/who?');
         }
         return;
       }
@@ -42,10 +44,10 @@ export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
           setIsAuthorized(isOwner);
           setAuthState(isOwner ? 'authorized' : 'unauthorized');
 
-          if (isOwner && router.pathname === '/auth') {
+          if (isOwner && router.pathname === '/who?') {
             router.push('/');
-          } else if (!isOwner && router.pathname !== '/auth') {
-            router.push('/auth');
+          } else if (!isOwner && router.pathname !== '/who?') {
+            router.push('/who?');
           }
         } else {
           setAuthState('error');
@@ -66,10 +68,9 @@ export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
     setAuthState('signing');
     try {
       const message = new TextEncoder().encode(
-        `Verify ownership for Syndikat DAO: ${Date.now()}\n\n` +
-        'By signing this message, you agree to our terms and privacy policy.\n' +
-        'This will check for required tokens and balances in your wallet.\n' +
-        'No fees will be applied.'
+        `Syndikat DAO Verification\n${new Date().toISOString()}\n\n` +
+'This signature confirms your wallet ownership and token balance.\n' +
+'No fees. By signing, you accept our terms and privacy policy.'
       );
       await signMessage?.(message);
       // After signing, we'll re-check authorization
@@ -95,7 +96,7 @@ export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
     disconnect();
     setIsAuthorized(false);
     setAuthState('disconnected');
-    router.push('/auth');
+    router.push('/who?');
   };
 
   return (

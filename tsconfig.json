@@ -1,7 +1,7 @@
 { 
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": ["es6", "dom", "es2017"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -16,7 +16,8 @@
     "incremental": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
+    "typeRoots": ["./node_modules/@types", "./types"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/who?.tsx"],
   "exclude": ["node_modules"]
 }

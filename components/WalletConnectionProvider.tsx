@@ -1,25 +1,40 @@
 import React, { useMemo } from 'react';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
+import { clusterApiUrl } from '@solana/web3.js';
+import {
+  PhantomWalletAdapter,
+  SolflareWalletAdapter,
+  TorusWalletAdapter,
+  LedgerWalletAdapter,
+  CoinbaseWalletAdapter,
+  TrustWalletAdapter
+} from '@solana/wallet-adapter-wallets';
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
-const RPC_ENDPOINT = process.env.NEXT_PUBLIC_RPC_ENDPOINT || 'https://api.mainnet-beta.solana.com';
+const NETWORK = process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'devnet';
+const RPC_ENDPOINT = process.env.NEXT_PUBLIC_RPC_ENDPOINT || (NETWORK === 'mainnet-beta' ? 'https://api.mainnet-beta.solana.com' : 'https://api.devnet.solana.com');
 
 export const WalletConnectionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const network = RPC_ENDPOINT.includes('devnet') 
-    ? WalletAdapterNetwork.Devnet 
-    : WalletAdapterNetwork.Mainnet;
+  const network = NETWORK === 'mainnet-beta' 
+    ? WalletAdapterNetwork.Mainnet 
+    : WalletAdapterNetwork.Devnet;
 
-  const wallets = useMemo(
-    () => [new PhantomWalletAdapter(), new SolflareWalletAdapter({ network })],
-    [network]
-  );
+  const endpoint = useMemo(() => RPC_ENDPOINT || clusterApiUrl(network), [network]);
+
+  const wallets = useMemo(() => [
+    new PhantomWalletAdapter(),
+    new SolflareWalletAdapter(),
+    new TorusWalletAdapter(),
+    new LedgerWalletAdapter(),
+    new CoinbaseWalletAdapter(),
+    new TrustWalletAdapter()
+  ], [network]);
 
   return (
-    <ConnectionProvider endpoint={RPC_ENDPOINT}>
+    <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect={false}>
         <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>

@@ -8,6 +8,8 @@ import { ThemeProvider } from 'next-themes'
 import config from '../theme.config'
 import { DisconnectButton } from '../components/DisconnectButton'
 import ReactDOM from 'react-dom/client';
+import { SessionProvider } from "next-auth/react"
+
 
 const announcements = [
   { text: 'Go Silly, or Feel Silly! IDO Now Live on Raydium', link: 'https://www.dexlab.space/mintinglab/spl-token/B2Qfkrw8SNr7dBaxBr62zTQmF74f6aUFw8cdibvB3L5k1' },
@@ -28,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [])
 
   return (
+    <SessionProvider session={pageProps.session}>
     <WalletConnectionProvider>
       <AuthWrapper>
         {({ isAuthorized, isLoading, authState, handleSignMessage }) => (
@@ -57,6 +60,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         )}
       </AuthWrapper>
     </WalletConnectionProvider>
+    </SessionProvider>
   )
 }
 

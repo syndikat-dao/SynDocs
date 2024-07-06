@@ -1,3 +1,16 @@
+import "next-auth"
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string
+    }
+  }
+}
+declare module 'nextra' {
+  export function createNextraConfig(config: any): any;
+}
+
   declare module '@solana/codecs-data-structures' {
     export function getDiscriminatedUnionEncoder(variants: any, config?: any): any;
     export function getDataEnumEncoder(variants: any, config?: any): any;

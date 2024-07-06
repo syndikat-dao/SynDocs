@@ -9,10 +9,10 @@ export const DisconnectButton: React.FC = () => {
   const handleDisconnect = () => {
     disconnect();
     localStorage.removeItem('hasSignedMessage');
-    router.push('/auth');
+    router.push('/who?');
   };
 
-  if (router.pathname === '/auth') {
+  if (router.pathname === '/who?') {
     return null;
   }
 
