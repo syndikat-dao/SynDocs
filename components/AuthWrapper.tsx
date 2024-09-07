@@ -64,16 +64,15 @@ export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
 
   const handleSignMessage = async () => {
     if (!publicKey) return;
-
+  
     setAuthState('signing');
     try {
       const message = new TextEncoder().encode(
-        `Syndikat DAO Verification\n${new Date().toISOString()}\n\n` +
-'This signature confirms your wallet ownership and token balance.\n' +
-'No fees. By signing, you accept our terms and privacy policy.'
+        `DAS Auth\n${new Date().toISOString()}\n\n` +
+        'DAS will check for required permissions. No fees apply!\n' +
+        'Using this Website indicates acceptance of our terms & privacy policy.\n'
       );
       await signMessage?.(message);
-      // After signing, we'll re-check authorization
       setAuthState('verifying');
       const ownershipResult = await verifyOwnership(publicKey.toString());
       if (ownershipResult) {
@@ -82,6 +81,8 @@ export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
         setAuthState(isOwner ? 'authorized' : 'unauthorized');
         if (isOwner) {
           router.push('/');
+        } else {
+          router.push('/who?');
         }
       } else {
         setAuthState('error');
@@ -90,7 +91,7 @@ export const AuthWrapper = ({ children }: AuthWrapperProps): JSX.Element => {
       console.error('Error signing message:', error);
       setAuthState('error');
     }
-  };
+  };  
 
   const handleDisconnect = () => {
     disconnect();

@@ -1,15 +1,33 @@
 import styles from './VideoSection.module.css';
 import { useState, useEffect } from 'react';
 import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
 
-# SynCity - Our Inner Circle!
+export const isDarkTheme = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+export const products = [
+  {
+    id: 1,
+    title: "Pi-oneers Visa",
+    image: "./logo.png",
+    price: "Exclusive (Not for sale)",
+    features: [
+      "Lifelong validity",
+      "Early supporter recognition",
+      "Access to 4% PI-Pool",
+      "Access to 24% DAO Treasury Pool"
+    ]
+  },
+  // Add more product objects as needed
+];
 
-### **Chapter 3: The Enchanted Nexus**
-<details>
-  <summary>IX. The Beacon of Independence</summary>
+## Our Inner Circle!
+As the first DAO-enabled City in the heart of Ibiza, Syndikat passport holders have the chance to explore SynCity, a unique and extravagant hidden dRealm for its Citizens to grow together!
+
+**III. The Collective Genius**
+
 <div className={styles.videoSection}>
   <div className={styles.videoWrapper}>
-    <video src="/yaqwer.mp4" autoPlay muted loop width="100%" height="auto" />
+    <video src="/yaqwer1.mp4" autoPlay muted loop width="100%" height="auto" />
     <div className={styles.videoCredits}>
     [©](https://www.thevisualdome.com/)
     </div>
@@ -17,53 +35,79 @@ import { Callout } from 'nextra/components'
   <div className={styles.textWrapper}>
     {typeof window !== 'undefined' ? (
       <p>
-Upon entering SynCity, Silly found herself enveloped in a realm where creativity and harmony flourish. The Whispering Web3 Woods spoke softly of solidarity, their digital tendrils entwining in a symphony of cooperation. In this kaleidoscope of life, the Soulful Sanctuary Space offered a haven for reflection, its melodies crafted by the deft touch of AI, guiding souls on their journey of growth.
-
-At the core of SynCity, the fusion of Permaculture & Hydroponic Heartland epitomized the blend of age-old wisdom with cutting-edge innovation. The Digital Oasis of Dreams dissolved the boundaries between reality and fantasy, crafting realms unbound by the physical world through augmented and virtual vistas.
-      </p>
+        In SynCity, Silly witnessed the alchemy of collective genius. Ideas sparked, collided, and fused in a dazzling dance of innovation. Her voice, amplified by blockchain, joined the symphony of decentralized governance. With each vote, each contribution, she shaped a living, breathing utopia—a testament to the power of united visionaries.
+</p>
     ) : (
       <p suppressHydrationWarning={true}>
-Upon entering SynCity, Silly found herself enveloped in a realm where creativity and harmony flourish. The Whispering Web3 Woods spoke softly of solidarity, their digital tendrils entwining in a symphony of cooperation. In this kaleidoscope of life, the Soulful Sanctuary Space offered a haven for reflection, its melodies crafted by the deft touch of AI, guiding souls on their journey of growth.
-
-At the core of SynCity, the fusion of Permaculture & Hydroponic Heartland epitomized the blend of age-old wisdom with cutting-edge innovation. The Digital Oasis of Dreams dissolved the boundaries between reality and fantasy, crafting realms unbound by the physical world through augmented and virtual vistas.
-      </p>
+        In SynCity, Silly witnessed the alchemy of collective genius. Ideas sparked, collided, and fused in a dazzling dance of innovation. Her voice, amplified by blockchain, joined the symphony of decentralized governance. With each vote, each contribution, she shaped a living, breathing utopia—a testament to the power of united visionaries.
+</p>
     )}
   </div>
 </div>
-</details>
 
-### Welcome to SynCity!
+## The Problem with Centralised Systems
 
-As the first DAO-enabled City in the heart of Ibiza, Syndikat passport holders have the chance to explore SynCity, a unique and extravagant hidden dRealm for its Citizens to grow together!
+In today's world, centralised systems dominate our communities and governance structures, stifling innovation and individual empowerment. These systems often suffer from a lack of transparency, concentrating power in the hands of a few. Decision-making becomes opaque, leaving the majority feeling voiceless and disconnected. Unequal resource distribution further exacerbates societal divides, while rigid hierarchies limit creativity and adaptability. Moreover, centralised systems are vulnerable to single points of failure, jeopardising the entire community's stability. The result is a world where individual potential remains largely untapped, and collective progress is hindered by outdated, inefficient structures.
+## Our Solution: DAS & SynCity
 
+SynCity, powered by the Decentralised Autonomous Syndicate (DAS), offers a groundbreaking solution to these challenges. Here's how our ecosystem works:
+
+<Steps>
+### Accept Your Call
+Hear the "Knock, knock" and open the door to a new reality
+### Secure Your Seat
+Mint your exclusive SynCity Visa NFT
+### Engage with the Community
+Connect with like-minded visionaries and innovators
+### Bring Your Ideas to Life
+Propose and vote on initiatives using our decentralised governance system
+### Celebrate Our Achievements
+Join the annual DAS Brennt festival, a 13-day celebration of creativity and innovation
+### Repeat!
+Continue to grow, innovate, and shape our shared future
+</Steps>
+
+## SynCity's Ecosystem
 **Resource Distribution:**
 
-SynCity’s ecosystem aligns with Syndikat standards and thrives on a meticulously crafted distribution strategy, ensuring the sustained growth and vitality of the community:
+SynCity’s ecosystem aligns with DAS standards and thrives on a meticulously crafted distribution strategy, ensuring the sustained growth and vitality of the community:
 
-| Allocation Category | Description |
-| --- | --- |
-| 4% PI Pool | Reserved for founders and pivotal contributors, secured by multi-signature squads. |
-| 48% SynCity Pool | The primary funding reservoir for Syndikat's operations and ventures. |
-| 34% DAO Treasury Pool | Set aside for the DAO's future endeavors and expansion. |
-| 8% Liquidity Pool | Ensures fluidity across exchanges and platforms, maintaining economic stability. |
-| 6% Reserve| For Rainy Days, and or R&D |
+<img src="/syncity-chart.svg" alt="Image alt" />
 
-### 
+### **DAS SynCity Visas: The Key to Our Hidden dRealm**
 
-### **Syndikat’s SynCity NFT-Visas: The Key to Our Hidden dRealm**
-
-The journey into Syndikat's hidden sanctuary is unlocked through NFT-Visas, each an emblem of dedication to the Syndikat ethos and a commitment to sculpting this concealed utopia.
- 
+The journey into SynCity's hidden sanctuary is unlocked through NFT-Visas, each an emblem of dedication to the DAS ethos and a commitment to sculpting this concealed utopia.
  
 <Callout type="error" emoji="⚠️">
-Knock, Knock passport required to mint Visas! [apply first:](https://eu.jotform.com/build/232253084368053)
+Knock, Knock passport required to mint Visas! [Apply First](https://eu.jotform.com/build/232253084368053)
 </Callout>
 
-<Callout emoji="✊">
-  <a href="https://nb-cmv3-devnet.vercel.app/" target="_blank" rel="noopener noreferrer">
-    **Pi-oneers** Pi Magic Pure Connection: The immortal NFT-Visa to the SynCity Ecosystem!
+## Get DAS Visa, live the Revolution!
+
+<div className={`${styles['product-container']} ${isDarkTheme ? styles.darkTheme : styles.lightTheme}`}>
+  <div className={styles['product-card']}>
+    <img src="./logo.png" alt="Pi-oneers Visa" className={styles['product-image']} />
+    <div className={styles['product-info']}>
+      <h3 className={styles['product-title']}>Pi-oneers Visa</h3>
+      <p className={styles['product-price']}>Exclusive (Not for sale)</p>
+      <ul className={styles['product-features']}>
+        <li>Lifelong validity</li>
+        <li>Access to Pi, DAS & Silly Treasury Pool</li>
+        <li>159,620,510.075 Silly Tokens reward</li>
+        <li>All privileges and whitelist in DAS ecosystem</li>
+      </ul>
+    </div>
+<div className={styles['overlay']}>
+  <a 
+    href="https://nb-cmv3-devnet.vercel.app/" 
+    className={styles['mint-link']} 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    Mint Me
   </a>
-</Callout>
+</div>
+  </div>
 
 <details>
   <summary>More Info</summary>
@@ -81,56 +125,74 @@ Knock, Knock passport required to mint Visas! [apply first:](https://eu.jotform.
   | Features | Lifelong validity, early supporter recognition, access to the 4% PI-Pool for founders and residents, and the 24% DAO Treasury Pool. |
 </details>
 
-<Callout emoji="👾">
-  <a href="https://nb-cmv3-devnet.vercel.app/" target="_blank" rel="noopener noreferrer">
-    **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro Nishikado.
+  <div className={styles['product-card']}>
+    <img src="./logo.png" alt="E-nthusiasts Visa" className={styles['product-image']} />
+    <div className={styles['product-info']}>
+      <h3 className={styles['product-title']}>E-nthusiasts Visa</h3>
+      <p className={styles['product-price']}>7,477.87 USDC</p>
+      <ul className={styles['product-features']}>
+        <li>2 years of enriched access (from 13.03.2025)</li>
+        <li>13 days DAS Brennt experiance</li>
+        <li>Proposal and voting power in 34% SynCity & 60% Silly Treasury Pool</li>
+        <li>314,159 Silly Tokens reward</li>
+        <li>Priority accommodation & working space in SynCity</li>
+        <li>Whitelist in DAS ecosystem</li>
+      </ul>
+    </div>
+<div className={styles['overlay']}>
+  <a 
+    href="https://nb-cmv3-devnet.vercel.app/" 
+    className={styles['mint-link']} 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    Mint Me
   </a>
-</Callout>
+</div>
+  </div>
 
 <details>
   <summary>More Info</summary>
 | Attributes: | Details: |
 | --- | --- |
-| Pi-Pals | For esteemed supporters, providing 2 years of enriched access and benefits. Staring from 13.03.2025|
-| Total NFTs | 313 |
+| E-nthusiasts | For esteemed supporters, providing 2 years of enriched access and benefits. Staring from 13.03.2025|
+| Total NFTs | 440 |
 | Price per NFT | €7477.87 |
 | Total Value | €2,340,565.31 |
 | Silly Token Reward per NFT | 314,159 Silly Tokens |
 | Total Silly Tokens | 98,331,767 Tokens |
 | Governance | [SPL](https://spl.solana.com/token), [Raydium](http://raydium.io/), [Dexlabs](http://dexlabs.so/), [Realms.today](http://realms.today/) & [Squads](https://squads.so/) |
-| Vesting | 3 months vesting |
+| Vesting | 6 months vesting |
 | Utility | Proof of participation. Lifetime validity, seed supporter status, proposal, and voting power in the 24% DAO Treasury Pool, and 4 years access to the 20% Supporter pool. |
 
 </details>
 
-
-<Callout emoji="👾">
-  <a href="https://nb-cmv3-devnet.vercel.app/" target="_blank" rel="noopener noreferrer">
-    **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro Nishikado.
+  <div className={styles['product-card']}>
+    <img src="./logo.png" alt="Golden Ratio Guilds Visa" className={styles['product-image']} />
+    <div className={styles['product-info']}>
+      <h3 className={styles['product-title']}>Golden Ratio Guilds Visa</h3>
+      <p className={styles['product-price']}>3,141.59 USDC</p>
+      <ul className={styles['product-features']}>
+        <li>1 year validity (from 13.03.2025)</li>
+        <li>Access to 34% DAS & 60% Silly Treasury Pool</li>
+        <li>13-day DAS Brennt celebration</li>
+        <li>Voting rights in DAS & Silly decisions</li>
+        <li>271,828 Silly Tokens reward (3 months vested)</li>
+        <li>Whitelist in DAS ecosystem</li>
+      </ul>
+    </div>
+<div className={styles['overlay']}>
+  <a 
+    href="https://nb-cmv3-devnet.vercel.app/" 
+    className={styles['mint-link']} 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    Mint Me
   </a>
-</Callout>
-
-<details>
-  <summary>More Info</summary>
-| Attributes: | Details: |
-| --- | --- |
-| E-nthusiasts | Acknowledging early allies, granting two years of active participation and rewards. |
-| Total NFTs | 127 |
-| Price per NFT | €2,718.28 |
-| Total Value | ---- |
-| Silly Token Reward per NFT | 161,800 Silly Tokens |
-| Total Silly Tokens | 20,548,600 Tokens |
-| Utility | Proof of participation. 1 years validity (starting from 13.03.2025) and access to the 34% DAO Treasury Pool. |
-| Governance | [SPL](https://spl.solana.com/token), [Raydium](http://raydium.io/), [Dexlabs](http://dexlabs.so/), [Realms.today](http://realms.today/) & [Squads](https://squads.so/) |
-| Vesting | 3 months vesting |
-</details>
-
-
-<Callout emoji="👾">
-  <a href="https://nb-cmv3-devnet.vercel.app/" target="_blank" rel="noopener noreferrer">
-    **Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro Nishikado.
-  </a>
-</Callout>
+</div>
+  </div>
+</div>
 
 <details>
   <summary>More Info</summary>
@@ -148,7 +210,18 @@ Knock, Knock passport required to mint Visas! [apply first:](https://eu.jotform.
 </details>
 
 
-Roadmap:
+## Milestones to Our Decentralised Future:
+
+| Phase | Milestone | Description | Success Criteria |
+| ----- | --------- | ----------- | ---------------- |
+| 1 | Foundation (2024 Q3) | Establish DAS and set up governance structures | Governance framework documented and approved by founding members |
+| 2 | Community Building (2024 Q4) | Onboard community and reach 30% of INO/IDO target | Minimum 30% of tokens sold, active community engagement on platforms |
+| 3 | Land Acquisition (2025 Q1) | Secure land for SynCity | Legal ownership of designated areas, contracts finalised |
+| 4 | Development Initiation (2025 Q2) | Begin SynCity's physical development | Construction plans approved, initial groundwork commenced |
+| 5 | Infrastructure Development (2025 Q3) | Construct key facilities and implement smart city technologies | Core buildings completed, DePIN systems operational |
+| 6 | SynCity Launch (2025 Q4) | Open SynCity to members and start operations | First Citizens moved in, basic services operational |
+| 7 | Ecosystem Expansion (2026 Q1) | Integrate SynCity with broader DAS initiatives | Successful collaboration with DAS Brennt and SputnikGPT teams |
+| 8 | Sustainability Milestone (2026 Q2) | Achieve key sustainability and self-sufficiency targets | Measurable reduction in external resource dependence |
 
 ### **Chapter 4: The Luminous Kiss of Altruism**
 

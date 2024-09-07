@@ -7,9 +7,7 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import config from '../theme.config'
 import { DisconnectButton } from '../components/DisconnectButton'
-import ReactDOM from 'react-dom/client';
 import { SessionProvider } from "next-auth/react"
-
 
 const announcements = [
   { text: 'Go Silly, or Feel Silly! IDO Now Live on Raydium', link: 'https://www.dexlab.space/mintinglab/spl-token/B2Qfkrw8SNr7dBaxBr62zTQmF74f6aUFw8cdibvB3L5k1' },
@@ -31,35 +29,36 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <SessionProvider session={pageProps.session}>
-    <WalletConnectionProvider>
-      <AuthWrapper>
-        {({ isAuthorized, isLoading, authState, handleSignMessage }) => (
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <>
-              {isAuthorized && router.pathname === '/' && (
-                <div className="announcement-bar">
-                  <a href={announcements[currentAnnouncement].link}>{announcements[currentAnnouncement].text}</a>
-                </div>
-              )}
-              {isLoading ? (
-                <div>Loading...</div>
-              ) : (
-                <>
-                  <Component 
-                    {...pageProps} 
-                    authState={authState} 
-                    handleSignMessage={handleSignMessage}
-                  />
-                  {isAuthorized && router.pathname === '/' && (
-                    <GPTWidget />
-                  )}
-                </>
-              )}
-            </>
-          </ThemeProvider>
-        )}
-      </AuthWrapper>
-    </WalletConnectionProvider>
+      <WalletConnectionProvider>
+        <AuthWrapper>
+          {({ isAuthorized, isLoading, authState, handleSignMessage, handleDisconnect }) => (
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <>
+                {isAuthorized && router.pathname === '/' && (
+                  <div className="announcement-bar">
+                    <a href={announcements[currentAnnouncement].link}>{announcements[currentAnnouncement].text}</a>
+                  </div>
+                )}
+                {isLoading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <>
+                    <Component 
+                      {...pageProps} 
+                      authState={authState} 
+                      handleSignMessage={handleSignMessage}
+                      handleDisconnect={handleDisconnect}
+                    />
+                    {isAuthorized && router.pathname === '/' && (
+                      <GPTWidget />
+                    )}
+                  </>
+                )}
+              </>
+            </ThemeProvider>
+          )}
+        </AuthWrapper>
+      </WalletConnectionProvider>
     </SessionProvider>
   )
 }

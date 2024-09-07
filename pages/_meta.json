@@ -1,21 +1,9 @@
 {
-  "index": "Hello World",
-  "ecosystem": {
-    "title": "Ecosystem",
-    "display": "hidden"
-  },
-  "Silly": "Silly (Milly) Token",
-  "SynCity": "SynCity DAO",
-  "Optik": {
-    "title": "Optik DAO",
-    "display": "hidden"
-  },
-  "SynSea": "SynSea DAO",
-  "MillyNair": {
-    "title": "MillyNair DAO",
-    "display": "hidden"
-  },
-  "SputnikGPT": "SputnikGPT",
+  "index": "What is DAS?",
+  "Silly": "Silly (DAS) Token",
+  "SynCity": "Syn City",
+  "DASBrennt": "DAS Brennt",
+  "SputnikGPT": "Sputnik LLM",
 
   "apply": {
     "title": "Get Your Passport",
@@ -30,9 +18,10 @@
     "theme": {
       "breadcrumb": false,
       "footer": true,
-      "sidebar": false,
+      "sidebar": true,
       "toc": true,
-      "pagination": false
+      "pagination": false,
+      "newWindow": true
     }
   },
   "privacy": {
@@ -41,9 +30,10 @@
     "theme": {
       "breadcrumb": false,
       "footer": true,
-      "sidebar": false,
+      "sidebar": true,
       "toc": true,
-      "pagination": false
+      "pagination": false,
+      "newWindow": true
     }
   },
   "airdrop": {
@@ -63,8 +53,8 @@
     "href": "https://nb-cmv3-devnet.vercel.app/",
     "newWindow": true
   },
-  "Colab": {
-  "title": "Colab",
+  "More": {
+  "title": "More",
   "type": "menu",
   "items": {
   "Partnership": {
@@ -72,9 +62,9 @@
      "href": "mailto:partner@syndikat.wtf",
       "newWindow": true
     },
-      "Affiliates": {
-      "title": "Affiliate",
-      "href": "mailto:affiliate@syndikat.wtf",
+      "Presale": {
+      "title": "Presale",
+      "href": "https://nb-cmv3-devnet.vercel.app/",
       "newWindow": true
     }
   }

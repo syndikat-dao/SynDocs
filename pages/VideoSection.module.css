@@ -36,3 +36,148 @@
     flex: 1;
   }
 }
+.product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.product-card {
+  background-color: var(--bg-secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 1px solid #9945FF;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  border-color: #14F195;
+}
+
+.product-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.product-info {
+  padding: 1.75rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.product-price {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #14F195;
+  margin-bottom: 1.25rem;
+}
+
+.product-features {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.product-features li {
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.product-features li::before {
+  content: '•';
+  color: #9945FF;
+  margin-right: 0.75rem;
+  font-size: 1.2em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .overlay {
+  opacity: 1;
+}
+
+.mint-link {
+  background-color: #14F195;
+  color: #000000;
+  padding: 0.9rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mint-link:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .product-card {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .product-image-container {
+    width: 40%;
+    padding: 2rem;
+  }
+
+  .product-info {
+    width: 60%;
+  }
+}
+
+.lightTheme {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+.darkTheme {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+}
+
+

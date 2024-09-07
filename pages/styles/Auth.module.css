@@ -3,8 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  height: 100vh; /* Full height of the viewport */
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family:  Diatype, Arial, Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .authStatus {
@@ -12,17 +14,24 @@
 }
 
 .tokenLinks {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 10px;
 }
-
+.tokenLinks a:hover {
+  font-weight: bold;
+}
 .tokenLinks a {
-  display: inline-block;
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: #1b191c;
-  color: #fff;
+  width: 100%;
+  margin: 10px 0;
+  text-align: center;
+  color: white;
   text-decoration: none;
-  border-radius: 5px;
+  font-family: 'DM Mono', monospace;
+  transition: font-weight 0.3s ease;
 }
 
 .logoContainer {

@@ -21,5 +21,11 @@
 body {
   background-color: #000;
   color: #fff;
-  font-family: Diatype, Arial, Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:  Diatype, Arial, Helvetica, sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.nextra-nav-container button svg {
+  color: var(--icon-color);
+}
+.nextra-nav-container a[href^="https://github.com"] svg {
+  color: var(--github-icon-color) !important;
 }

@@ -14,7 +14,7 @@ const REQUIRED_NFT_ADDRESSES = process.env.NEXT_PUBLIC_REQUIRED_NFT_ADDRESS?.spl
 const REQUIRED_SPL_TOKEN_ADDRESSES = process.env.NEXT_PUBLIC_REQUIRED_SPL_TOKEN_ADDRESS?.split(',') || [];
 const REQUIRED_SPL_TOKEN_AMOUNT = process.env.NEXT_PUBLIC_REQUIRED_SPL_TOKEN_AMOUNT?.split(',').map(Number) || [];
 
-async function getConnection(): Promise<any> {
+async function getConnection(): Promise<Connection> {
   for (const endpoint of RPC_ENDPOINTS) {
     if (!endpoint) continue;
     const connection = new Connection(endpoint, 'confirmed');
@@ -50,37 +50,43 @@ export const verifyOwnership = async (publicKey: string): Promise<{ isOwner: boo
 
     let nftFound = false;
     let splTokenFound = false;
-    
-    // Check NFT ownership
-if (REQUIRED_NFT_ADDRESSES.length > 0) {
-  debugInfo += "Required NFT addresses:\n";
-  REQUIRED_NFT_ADDRESSES.forEach(addr => {
-    debugInfo += `${addr}\n`;
-  });
-  debugInfo += "\n";
 
-  const nftAccounts = tokenAccounts.value.filter((account: any) =>
-    REQUIRED_NFT_ADDRESSES.includes(account.account.data.parsed.info.mint) &&
-    account.account.data.parsed.info.tokenAmount.uiAmount > 0
-  );
-  nftFound = nftAccounts.length > 0;
-  debugInfo += nftFound ? `Required NFT found\n` : `Required NFT not found\n`;
-  nftAccounts.forEach((account: any) => {
-    debugInfo += `NFT found: ${account.account.data.parsed.info.mint}\n`;
-  });
-} else {
-  nftFound = true; // If no NFTs are required, consider this condition met
-  debugInfo += "No NFTs required for verification\n";
-}
-    
+    // Check NFT ownership
+    if (REQUIRED_NFT_ADDRESSES.length > 0) {
+      debugInfo += "Required NFT addresses:\n";
+      REQUIRED_NFT_ADDRESSES.forEach(addr => {
+        debugInfo += `${addr}\n`;
+      });
+      debugInfo += "\n";
+
+      const nftAccounts = tokenAccounts.value.filter((account: any) =>
+        REQUIRED_NFT_ADDRESSES.includes(account.account.data.parsed.info.mint) &&
+        account.account.data.parsed.info.tokenAmount.uiAmount > 0
+      );
+      nftFound = nftAccounts.length > 0;
+      debugInfo += nftFound ? `Required NFT found\n` : `Required NFT not found\n`;
+      nftAccounts.forEach((account: any) => {
+        debugInfo += `NFT found: ${account.account.data.parsed.info.mint}\n`;
+      });
+    } else {
+      debugInfo += "No NFTs required for verification\n";
+    }
+
     // Check SPL token ownership and amount
     if (REQUIRED_SPL_TOKEN_ADDRESSES.length > 0) {
+      debugInfo += "Required SPL tokens:\n";
+      REQUIRED_SPL_TOKEN_ADDRESSES.forEach((address, index) => {
+        const requiredAmount = REQUIRED_SPL_TOKEN_AMOUNT[index] || 0;
+        debugInfo += `${address} - Required Amount: ${requiredAmount}\n`;
+      });
+      debugInfo += "\n";
+
       splTokenFound = REQUIRED_SPL_TOKEN_ADDRESSES.some((address, index) => {
         const tokenAccount = tokenAccounts.value.find(
           (account: any) => account.account.data.parsed.info.mint === address
         );
         if (tokenAccount) {
-          const tokenAmount = parseInt(tokenAccount.account.data.parsed.info.tokenAmount.amount);
+          const tokenAmount = parseFloat(tokenAccount.account.data.parsed.info.tokenAmount.uiAmount);
           const requiredAmount = REQUIRED_SPL_TOKEN_AMOUNT[index] || 0;
           debugInfo += `SPL token found: ${address}. Amount: ${tokenAmount}, Required: ${requiredAmount}\n`;
           return tokenAmount >= requiredAmount;
@@ -90,10 +96,10 @@ if (REQUIRED_NFT_ADDRESSES.length > 0) {
         }
       });
     } else {
-      splTokenFound = true; // If no SPL tokens are required, consider this condition met
-    }    
+      debugInfo += "No SPL tokens required for verification\n";
+    }
 
-    const isOwner = nftFound && splTokenFound;
+    const isOwner = nftFound || splTokenFound;
     debugInfo += `\nOwnership verified: ${isOwner}`;
 
     console.log(debugInfo);
