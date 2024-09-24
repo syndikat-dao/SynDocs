@@ -180,4 +180,15 @@
   --text-color: #ffffff;
 }
 
+.headerImageContainer {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 66.67%; /* 3:2 aspect ratio */
+}
 
+@media (max-width: 768px) {
+  .headerImageContainer {
+    padding-top: 177.78%; /* 9:16 aspect ratio */
+  }
+}

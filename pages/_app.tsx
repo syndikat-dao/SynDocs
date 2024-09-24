@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <WalletConnectionProvider>
         <AuthWrapper>
           {({ isAuthorized, isLoading, authState, handleSignMessage, handleDisconnect }) => (
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
               <>
                 {isAuthorized && router.pathname === '/' && (
                   <div className="announcement-bar">

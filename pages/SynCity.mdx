@@ -2,89 +2,73 @@ import styles from './VideoSection.module.css';
 import { useState, useEffect } from 'react';
 import { Callout } from 'nextra/components'
 import { Steps } from 'nextra/components'
+import { useTheme } from 'next-themes'
 
-export const isDarkTheme = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-export const products = [
-  {
-    id: 1,
-    title: "Pi-oneers Visa",
-    image: "./logo.png",
-    price: "Exclusive (Not for sale)",
-    features: [
-      "Lifelong validity",
-      "Early supporter recognition",
-      "Access to 4% PI-Pool",
-      "Access to 24% DAO Treasury Pool"
-    ]
-  },
-  // Add more product objects as needed
-];
+export const DynamicThemeWrapper = ({ children }) => {
+  const { resolvedTheme } = useTheme()
+  const isDarkTheme = resolvedTheme === 'dark'
 
-## Our Inner Circle!
-As the first DAO-enabled City in the heart of Ibiza, Syndikat passport holders have the chance to explore SynCity, a unique and extravagant hidden dRealm for its Citizens to grow together!
+  return (
+    <div className={`${styles['product-container']} ${isDarkTheme ? styles.darkTheme : styles.lightTheme}`}>
+      {children}
+    </div>
+  )
+}
 
-**III. The Collective Genius**
+
+## Your Gateway to Decentralised Utopia
+
+Welcome to SynCity, the world's first DAO-enabled city nestled in the heart of Ibiza. Here, visionaries unite to craft a revolutionary living experience.
+
+**The Collective Genius**
 
 <div className={styles.videoSection}>
   <div className={styles.videoWrapper}>
-    <video src="/yaqwer1.mp4" autoPlay muted loop width="100%" height="auto" />
-    <div className={styles.videoCredits}>
-    [©](https://www.thevisualdome.com/)
-    </div>
+    <img src="/syncity1.png" autoPlay muted loop width="100%" height="auto" />
   </div>
   <div className={styles.textWrapper}>
-    {typeof window !== 'undefined' ? (
-      <p>
-        In SynCity, Silly witnessed the alchemy of collective genius. Ideas sparked, collided, and fused in a dazzling dance of innovation. Her voice, amplified by blockchain, joined the symphony of decentralized governance. With each vote, each contribution, she shaped a living, breathing utopia—a testament to the power of united visionaries.
-</p>
-    ) : (
-      <p suppressHydrationWarning={true}>
-        In SynCity, Silly witnessed the alchemy of collective genius. Ideas sparked, collided, and fused in a dazzling dance of innovation. Her voice, amplified by blockchain, joined the symphony of decentralized governance. With each vote, each contribution, she shaped a living, breathing utopia—a testament to the power of united visionaries.
-</p>
-    )}
+    <p>
+      In SynCity, ideas spark, collide, and fuse in a dazzling dance of innovation. Your voice, amplified by blockchain, joins the symphony of decentralised governance. With each vote, each contribution, you shape a living, breathing utopia—a testament to the power of united visionaries.
+    </p>
   </div>
 </div>
 
-## The Problem with Centralised Systems
+## Embrace the SynCity Revolution
 
-In today's world, centralised systems dominate our communities and governance structures, stifling innovation and individual empowerment. These systems often suffer from a lack of transparency, concentrating power in the hands of a few. Decision-making becomes opaque, leaving the majority feeling voiceless and disconnected. Unequal resource distribution further exacerbates societal divides, while rigid hierarchies limit creativity and adaptability. Moreover, centralised systems are vulnerable to single points of failure, jeopardising the entire community's stability. The result is a world where individual potential remains largely untapped, and collective progress is hindered by outdated, inefficient structures.
-## Our Solution: DAS & SynCity
-
-SynCity, powered by the Decentralised Autonomous Syndicate (DAS), offers a groundbreaking solution to these challenges. Here's how our ecosystem works:
+SynCity, powered by the Decentralised Autonomous Syndicate (DAS), offers a groundbreaking solution to the limitations of centralised systems. Here's how our ecosystem empowers you:
 
 <Steps>
-### Accept Your Call
-Hear the "Knock, knock" and open the door to a new reality
-### Secure Your Seat
-Mint your exclusive SynCity Visa NFT
-### Engage with the Community
-Connect with like-minded visionaries and innovators
-### Bring Your Ideas to Life
-Propose and vote on initiatives using our decentralised governance system
-### Celebrate Our Achievements
-Join the annual DAS Brennt festival, a 13-day celebration of creativity and innovation
-### Repeat!
-Continue to grow, innovate, and shape our shared future
+### Secure Your Place
+- [Apply for citizenship](https://eu.jotform.com/form/232253084368053#preview)
+- [Mint your SynCity Visa](https://nb-cmv3-devnet.vercel.app/)
+- Choose your level of involvement
+
+### Shape Your World
+- Propose and vote on city developments
+- Collaborate on community projects
+- Participate in decentralised governance
+
+### Live the Future
+- Reside in our innovative community
+- Work in cutting-edge facilities
+- Enjoy sustainable, tech-driven living
+
+### Grow with Us
+- Contribute to ecosystem expansion
+- Immerse in cultural events
+- Define the future of urban living
 </Steps>
 
-## SynCity's Ecosystem
-**Resource Distribution:**
+## SynCity Pool Structure
+<img src="/syncity-chart.svg" alt="SynCity Pool Structure" />
 
-SynCity’s ecosystem aligns with DAS standards and thrives on a meticulously crafted distribution strategy, ensuring the sustained growth and vitality of the community:
+## DAS Visas - Your Key to SynCity
 
-<img src="/syncity-chart.svg" alt="Image alt" />
-
-### **DAS SynCity Visas: The Key to Our Hidden dRealm**
-
-The journey into SynCity's hidden sanctuary is unlocked through NFT-Visas, each an emblem of dedication to the DAS ethos and a commitment to sculpting this concealed utopia.
- 
 <Callout type="error" emoji="⚠️">
 Knock, Knock passport required to mint Visas! [Apply First](https://eu.jotform.com/build/232253084368053)
 </Callout>
 
-## Get DAS Visa, live the Revolution!
-
-<div className={`${styles['product-container']} ${isDarkTheme ? styles.darkTheme : styles.lightTheme}`}>
+<DynamicThemeWrapper>
   <div className={styles['product-card']}>
     <img src="./logo.png" alt="Pi-oneers Visa" className={styles['product-image']} />
     <div className={styles['product-info']}>
@@ -94,36 +78,15 @@ Knock, Knock passport required to mint Visas! [Apply First](https://eu.jotform.c
         <li>Lifelong validity</li>
         <li>Access to Pi, DAS & Silly Treasury Pool</li>
         <li>159,620,510.075 Silly Tokens reward</li>
-        <li>All privileges and whitelist in DAS ecosystem</li>
+        <li>All privileges in DAS ecosystem</li>
       </ul>
     </div>
-<div className={styles['overlay']}>
-  <a 
-    href="https://nb-cmv3-devnet.vercel.app/" 
-    className={styles['mint-link']} 
-    target="_blank" 
-    rel="noopener noreferrer"
-  >
-    Mint Me
-  </a>
-</div>
+    <div className={styles['overlay']}>
+      <a href="https://nb-cmv3-devnet.vercel.app/" className={styles['mint-link']} target="_blank" rel="noopener noreferrer">
+        Mint Me
+      </a>
+    </div>
   </div>
-
-<details>
-  <summary>More Info</summary>
-  
-  | NFT Attributes | Details |
-  | --- | --- |
-  | Pi | The pinnacle of access, offering lifelong privileges and exclusive opportunities. |
-  | Total NFTs | 4 |
-  | Price | Exclusive (Not for sale) |
-  | Silly Token Reward per NFT | 159,620,510.075 Silly Tokens |
-  | Total Silly Tokens | 638,482,040.30 Tokens |
-  | Utility | Proof of participation for supporter wallets |
-  | Governance | [SPL](https://spl.solana.com/token), [Raydium](http://raydium.io/), [Dexlabs](http://dexlabs.so/), [Realms.today](http://realms.today/) & [Squads](https://squads.so/) |
-  | Vesting | 3 months vesting |
-  | Features | Lifelong validity, early supporter recognition, access to the 4% PI-Pool for founders and residents, and the 24% DAO Treasury Pool. |
-</details>
 
   <div className={styles['product-card']}>
     <img src="./logo.png" alt="E-nthusiasts Visa" className={styles['product-image']} />
@@ -132,40 +95,18 @@ Knock, Knock passport required to mint Visas! [Apply First](https://eu.jotform.c
       <p className={styles['product-price']}>7,477.87 USDC</p>
       <ul className={styles['product-features']}>
         <li>2 years of enriched access (from 13.03.2025)</li>
-        <li>13 days DAS Brennt experiance</li>
-        <li>Proposal and voting power in 34% SynCity & 60% Silly Treasury Pool</li>
+        <li>13 days DAS Brennt experience</li>
+        <li>Voting power in 34% SynCity & 60% Silly Treasury Pool</li>
         <li>314,159 Silly Tokens reward</li>
-        <li>Priority accommodation & working space in SynCity</li>
-        <li>Whitelist in DAS ecosystem</li>
+        <li>Priority SynCity accommodation & workspace</li>
       </ul>
     </div>
-<div className={styles['overlay']}>
-  <a 
-    href="https://nb-cmv3-devnet.vercel.app/" 
-    className={styles['mint-link']} 
-    target="_blank" 
-    rel="noopener noreferrer"
-  >
-    Mint Me
-  </a>
-</div>
+    <div className={styles['overlay']}>
+      <a href="https://nb-cmv3-devnet.vercel.app/" className={styles['mint-link']} target="_blank" rel="noopener noreferrer">
+        Mint Me
+      </a>
+    </div>
   </div>
-
-<details>
-  <summary>More Info</summary>
-| Attributes: | Details: |
-| --- | --- |
-| E-nthusiasts | For esteemed supporters, providing 2 years of enriched access and benefits. Staring from 13.03.2025|
-| Total NFTs | 440 |
-| Price per NFT | €7477.87 |
-| Total Value | €2,340,565.31 |
-| Silly Token Reward per NFT | 314,159 Silly Tokens |
-| Total Silly Tokens | 98,331,767 Tokens |
-| Governance | [SPL](https://spl.solana.com/token), [Raydium](http://raydium.io/), [Dexlabs](http://dexlabs.so/), [Realms.today](http://realms.today/) & [Squads](https://squads.so/) |
-| Vesting | 6 months vesting |
-| Utility | Proof of participation. Lifetime validity, seed supporter status, proposal, and voting power in the 24% DAO Treasury Pool, and 4 years access to the 20% Supporter pool. |
-
-</details>
 
   <div className={styles['product-card']}>
     <img src="./logo.png" alt="Golden Ratio Guilds Visa" className={styles['product-image']} />
@@ -178,51 +119,31 @@ Knock, Knock passport required to mint Visas! [Apply First](https://eu.jotform.c
         <li>13-day DAS Brennt celebration</li>
         <li>Voting rights in DAS & Silly decisions</li>
         <li>271,828 Silly Tokens reward (3 months vested)</li>
-        <li>Whitelist in DAS ecosystem</li>
       </ul>
     </div>
-<div className={styles['overlay']}>
-  <a 
-    href="https://nb-cmv3-devnet.vercel.app/" 
-    className={styles['mint-link']} 
-    target="_blank" 
-    rel="noopener noreferrer"
-  >
-    Mint Me
-  </a>
-</div>
-  </div>
-</div>
-
-<details>
-  <summary>More Info</summary>
-| Attributes: | Details: |
-| --- | --- |
-| GR-Guilds | Tailored for the explorers, offering a harmonious blend of discovery and influence. |
-| Total NFTs | 4,000 |
-| Price per NFT | 100NFTs/€1,618 899NFTs/€2,718.28 3001NFTs/€3,141.59|
-| Total Value | €12,472,000 |
-| Silly Token Reward per NFT | 271,828 Silly Tokens |
-| Total Silly Tokens | 1,087,312,000 Tokens |
-| Utility | Proof of participation. 1 year validity (from 13.03.2025) and access to the 34% DAO Treasury Pool. |
-| Governance | [SPL](https://spl.solana.com/token), [Raydium](http://raydium.io/), [Dexlabs](http://dexlabs.so/), [Realms.today](http://realms.today/) & [Squads](https://squads.so/) |
-| Vesting | 3 months vesting |
-</details>
+    <div className={styles['overlay']}>
+      <a href="https://nb-cmv3-devnet.vercel.app/" className={styles['mint-link']} target="_blank" rel="noopener noreferrer">
+        Mint Me
+      </a>
+    </div>
+ </div>
+</DynamicThemeWrapper>
 
 
-## Milestones to Our Decentralised Future:
+
+## Our Path to Decentralised Utopia
 
 | Phase | Milestone | Description | Success Criteria |
 | ----- | --------- | ----------- | ---------------- |
-| 1 | Foundation (2024 Q3) | Establish DAS and set up governance structures | Governance framework documented and approved by founding members |
-| 2 | Community Building (2024 Q4) | Onboard community and reach 30% of INO/IDO target | Minimum 30% of tokens sold, active community engagement on platforms |
-| 3 | Land Acquisition (2025 Q1) | Secure land for SynCity | Legal ownership of designated areas, contracts finalised |
-| 4 | Development Initiation (2025 Q2) | Begin SynCity's physical development | Construction plans approved, initial groundwork commenced |
-| 5 | Infrastructure Development (2025 Q3) | Construct key facilities and implement smart city technologies | Core buildings completed, DePIN systems operational |
-| 6 | SynCity Launch (2025 Q4) | Open SynCity to members and start operations | First Citizens moved in, basic services operational |
-| 7 | Ecosystem Expansion (2026 Q1) | Integrate SynCity with broader DAS initiatives | Successful collaboration with DAS Brennt and SputnikGPT teams |
-| 8 | Sustainability Milestone (2026 Q2) | Achieve key sustainability and self-sufficiency targets | Measurable reduction in external resource dependence |
+| 1 | Foundation (2024 Q3) | Establish DAS governance | Framework approved |
+| 2 | Community Growth (2024 Q4) | Launch INO/IDO | 30% token sale, active engagement |
+| 3 | Land Acquisition (2025 Q1) | Secure SynCity land | Ownership secured, contracts finalised |
+| 4 | Development Begins (2025 Q2) | Initiate physical construction | Plans approved, groundwork started |
+| 5 | Infrastructure (2025 Q3) | Build key facilities, implement smart tech | Core buildings complete, DePIN operational |
+| 6 | SynCity Launch (2025 Q4) | Open doors to members | First Citizens moved in, services running |
+| 7 | Ecosystem Expansion (2026 Q1) | Integrate with DAS initiatives | Successful collaboration across projects |
+| 8 | Sustainability (2026 Q2) | Achieve self-sufficiency targets | Reduced external resource dependence |
 
-### **Chapter 4: The Luminous Kiss of Altruism**
+Join us in SynCity, where every citizen is an architect of tomorrow. Together, we'll forge a beacon of innovation, sustainability, and collective brilliance. Your journey to a decentralised utopia begins now.
 
-Within the vibrant heart of SynCity, the Ignite Silly Soirée dazzles, where Citizens converge to witness the transformational blaze of NFT visas into embers of opportunity. This radiant ceremony symbolises a rebirth, beckoning new minds to inherit and enhance our collective legacy of innovation and camaraderie. It's a beacon where past achievements ignite future brilliance, all under the altruistic glow of unity and progressive thought.
+[Become a Citizen](https://eu.jotform.com/form/232253084368053#preview) | [Mint Your Visa](https://nb-cmv3-devnet.vercel.app/)

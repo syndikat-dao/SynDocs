@@ -1,7 +1,7 @@
 {
   "index": "What is DAS?",
   "Silly": "Silly (DAS) Token",
-  "SynCity": "Syn City",
+  "SynCity": "DAS SynCity",
   "DASBrennt": "DAS Brennt",
   "SputnikGPT": "Sputnik LLM",
 
@@ -36,8 +36,19 @@
       "newWindow": true
     }
   },
-  "airdrop": {
-    "title": "Airdrop",
+  "partner": {
+    "title": "Partner",
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false,
+      "footer": true,
+      "sidebar": false,
+      "toc": true,
+      "pagination": false
+    }
+  },
+  "DAO": {
+    "title": "Proposal & Voting",
     "display": "hidden",
     "theme": {
       "breadcrumb": false,
@@ -54,16 +65,21 @@
     "newWindow": true
   },
   "More": {
-  "title": "More",
+  "title": "Presale",
   "type": "menu",
   "items": {
-  "Partnership": {
-   "title": "Partner",
-     "href": "mailto:partner@syndikat.wtf",
+  "Presale1": {
+   "title": "Phase I",
+     "href": "https://nb-cmv3-devnet.vercel.app/",
       "newWindow": true
     },
-      "Presale": {
-      "title": "Presale",
+      "Presale2": {
+      "title": "Phase II",
+      "href": "https://nb-cmv3-devnet.vercel.app/",
+      "newWindow": true
+    },
+    "Presale3": {
+      "title": "Phase III",
       "href": "https://nb-cmv3-devnet.vercel.app/",
       "newWindow": true
     }
