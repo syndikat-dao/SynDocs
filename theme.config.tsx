@@ -4,7 +4,7 @@ import { DisconnectButton } from './components/DisconnectButton';
 import Link from 'next/link';
 
 const config: DocsThemeConfig = {
-  logo: <img src="/logo.png" alt="Logo" width="50" height="25" />,
+  logo: <img src="/logo.png" alt="Logo" width="50" height="50" />,
   darkMode: true,
   // project: {
   //   link: 'https://github.com/syndikat-dao/SynDocs',
@@ -25,9 +25,8 @@ const config: DocsThemeConfig = {
   //     </svg>
   //   )
   // },
-  primaryHue: {
-    light: 162,
-    dark: 162,
+  color: {
+      hue: 162,
   },
   navbar: {
     extraContent: () => {
@@ -87,5 +86,4 @@ const config: DocsThemeConfig = {
       </footer>
     ),
   },
-};
-export default config;
+};export default config;

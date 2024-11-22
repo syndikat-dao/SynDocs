@@ -1,4 +1,4 @@
-{ 
+{
   "compilerOptions": {
     "target": "es5",
     "lib": ["es6", "dom", "es2017"],
@@ -16,7 +16,11 @@
     "incremental": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./node_modules/@types", "./types"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ],
+    "types": []
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/who?.tsx"],
   "exclude": ["node_modules"]
